@@ -43,13 +43,17 @@
     /* 链接样式 */
     a {
       text-decoration: none;
-      color: #0066cc;
+      color: #fff;
       font-size: 18px;
-      display: block;
+      padding: 10px 20px;
+      display: inline-block;
+      background-color: #0066cc;
+      border-radius: 5px;
+      text-align: center;
+      transition: background-color 0.3s ease;
     }
     a:hover {
-      color: #005bb5;
-      text-decoration: underline;
+      background-color: #005bb5;
     }
 
     /* 错误信息提示 */
@@ -98,7 +102,7 @@
 </head>
 <body>
 
-  <h1>动态导航页面</h1>
+  <h1>导航页</h1>
 
   <ul id="nav-list">
     <!-- 导航链接将动态添加到这里 -->
