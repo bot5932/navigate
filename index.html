@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>动态导航页面</title>
   <style>
-    /* 页面基本样式 */
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f9;
@@ -19,7 +18,6 @@
       color: #333;
     }
 
-    /* 导航列表样式 */
     ul {
       list-style-type: none;
       padding: 20px;
@@ -39,7 +37,6 @@
       border-bottom: none;
     }
 
-    /* 链接样式 */
     a {
       text-decoration: none;
       color: #0066cc;
@@ -51,7 +48,6 @@
       text-decoration: underline;
     }
 
-    /* 加载失败的提示 */
     .error-message {
       text-align: center;
       color: #ff6347;
@@ -64,7 +60,6 @@
 
   <h1>动态导航页面</h1>
   <ul id="nav-list">
-    <!-- 导航链接将动态添加到这里 -->
   </ul>
 
   <div id="error-message" class="error-message" style="display: none;">
@@ -72,22 +67,20 @@
   </div>
 
   <script>
-    // 从 GitHub 获取 JSON 数据
-    const url = 'https://raw.githubusercontent.com/bot5932/domain/refs/heads/main/master';
+    // 使用 CORS 代理来绕过跨域限制
+    const url = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/bot5932/domain/refs/heads/main/master';
 
-    // 获取数据并动态生成导航项
     fetch(url)
       .then(response => response.json())
       .then(data => {
         const navList = document.getElementById('nav-list');
         
-        // 遍历数据并生成导航项
         data.forEach(item => {
           const li = document.createElement('li');
           const a = document.createElement('a');
           a.href = item.url;
-          a.target = '_blank';  // 在新标签页打开链接
-          a.rel = 'noopener noreferrer';  // 安全性提升
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
           a.textContent = item.name;
 
           li.appendChild(a);
