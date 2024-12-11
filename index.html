@@ -1,102 +1,66 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-CN">
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ovoCloud官方导航</title>
-        <meta property="theme-color" content="#c19aa4">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="primordial, primordial csgo, primordial hvh, primordial.dev, primordial.dev csgo, primordial.dev hvh, primordial.dev cheat, primordial cheat, primordial hack">
-        <meta content="QoQcloud官方导航" property="og:title">
-        <meta content="QoQcloud官方导航" property="og:description">
-        <meta content="https://t.me/QoQtizi" property="og:url">
-        <meta content="https://qoqcloud.com/img/logo.png" property="og:image">
-        <meta content="#e2b5c7" data-react-helmet="true" name="theme-color">
-        <link href="img/QoQtb.png" rel="icon" type="image/x-icon">
-        <link rel="stylesheet" href="css/all.min.css">
-        <link rel="stylesheet" href="css/style.css">
-
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>动态导航页</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            li {
+                margin: 10px 0;
+            }
+            a {
+                text-decoration: none;
+                color: #0066cc;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
     </head>
-
     <body>
-        <nav>
-            <a href="https://t.me/QoQtizi">  <font size="20"> <b> <span style="color:#fffffff8">OvO<span></span> <span style="color:#6A87F8"> Cloud<span></b></font> </a>
-            <div class="nav-link-holder">
-
-
-                <a class="link" href="https://t.me/Littlewhite0488"><i class="fa fa-spinner" aria-hidden="true"></i>&nbsp;分销合作</a>
-                <a class="link" href="https://t.me/QoQtizi"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;联系我们</a>
-
-
-            </div>
-        </nav>
-
-        <div class="main">
-            <h1>
-                <span style="color:#6A87F8">QoQ云全球加速永久导航<span></h1>
-                    <br>
-                    <h3><span style="color:#EEAD0E"><B>🌟 推荐使用谷歌(Chrome)浏览器访问本站ios建议使用手机自带浏览器</B></span></h4>
-
-                <br>
-           <p>
-               <a href="#" class="b3" id="dynamic-link">🚀QoQ云线路一（点击访问）</a>
-            <a href="#" class="b3" id="dynamic-link">🚀QoQ云线路二（点击访问）</a>
-            <a href="#" class="b3" id="dynamic-link">🚀QoQ云线路三（点击访问）</a>
-            <a href="#" class="b3" id="dynamic-link">🚀QoQ云线路四（点击访问）</a>
-           </p>
-            <br>
-            <br>
-            <br>
-
-
-
-
-        </div>
-
-
-
-        <hr style="height:1px;color:gray;background-color:gray">
-
-
-
-
-        <footer>
-            <p>版权所有 © 2025 OvOCloud</p>
-            <a href="https://t.me/Littlewhite0488">帮助</a>
-            <a href="https://t.me/QoQtizi">隐私政策</a>
-        </footer>
-
-        <script rel="preconnect" src="js/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
-        <script rel="preconnect" src="js/popper.min.js" integrity="sha512-Ua/7Woz9L5O0cwB/aYexmgoaD7lw3dWe9FvXejVdgqu71gRog3oJgjSWQR55fwWx+WKuk8cl7UwA1RS6QCadFA==" crossorigin="anonymous"> </script>
-        <script rel="preconnect" src="js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous"></script>
-        <script rel="preconnect" src="js/materialize.min.js" integrity"sha512-ujfaaolirtdr+0p6c3kuotdaxvtuy3lnsxlylklhyjlcsu8juge="" mjeaxdnmlw9lgeiotgz5fp8euqphx1q10a="=&quot;" crossorigin="anonymous"></script>
-        <script>
-
-            $(document).ready(function(){
-                $('.carousel').carousel({
-                    numVisible: 3,
-                });
-            });
-
-        </script>
+        <h1>导航页面</h1>
+        <ul id="nav-list">
+            <!-- 导航链接会在这里动态生成 -->
+        </ul>
 
         <script>
-            // 使用 fetch API 从 GitHub 获取数据
-            fetch('https://raw.githubusercontent.com/bot5932/domain/refs/heads/main/master')
-                .then(response => response.text())  // 获取文本内容
-                .then(data => {
-                    // 将获取的数据动态设置为链接的 href
-                    document.getElementById('dynamic-link').href = data.trim();
+            // 从GitHub获取JSON数据
+            const url =
+                "https://raw.githubusercontent.com/bot5932/domain/refs/heads/main/master";
+
+            // 获取数据并动态生成导航链接
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    const navList = document.getElementById("nav-list");
+
+                    // 遍历数据并生成导航项
+                    data.forEach((item) => {
+                        const li = document.createElement("li");
+                        const a = document.createElement("a");
+                        a.href = item.url;
+                        a.target = "_blank"; // 在新标签页打开链接
+                        a.rel = "noopener noreferrer"; // 安全性提升
+                        a.textContent = item.name;
+
+                        li.appendChild(a);
+                        navList.appendChild(li);
+                    });
                 })
-                .catch(error => {
-                    console.error('获取数据失败:', error);
+                .catch((error) => {
+                    console.error("获取数据失败:", error);
+                    const navList = document.getElementById("nav-list");
+                    const li = document.createElement("li");
+                    li.textContent = "加载失败，请稍后再试！";
+                    navList.appendChild(li);
                 });
         </script>
-
-
-
-
-
     </body>
 </html>
